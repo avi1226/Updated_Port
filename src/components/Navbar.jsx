@@ -18,43 +18,14 @@ export default function Navbar() {
   const isMobile = useIsMobile()
 
   useEffect(() => {
-    // Start hidden
-    if (navbarRef.current) {
-      gsap.set(navbarRef.current, { opacity: 0, y: -20 })
-    }
-
-    // Watch for hero to appear
-    let heroObserver
-    const tryObserveHero = () => {
-      const hero = document.querySelector("#hero")
-      if (!hero) {
-        setTimeout(tryObserveHero, 300)
-        return
-      }
-      heroObserver = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && !visible) {
-            setVisible(true)
-            gsap.to(navbarRef.current, {
-              opacity: 1, y: 0, duration: 0.7, ease: "power3.out",
-            })
-          }
-        },
-        { threshold: 0.1 }
-      )
-      heroObserver.observe(hero)
-    }
-    tryObserveHero()
-
     // Scroll tracking for background
     const wrapper = document.querySelector(".page-wrapper")
     const handleScroll = () => {
-      if (wrapper) setScrolled(wrapper.scrollTop > 100)
+      if (wrapper) setScrolled(wrapper.scrollTop > 200) // Trigger blur slightly after it sticks
     }
     if (wrapper) wrapper.addEventListener("scroll", handleScroll, { passive: true })
 
     return () => {
-      if (heroObserver) heroObserver.disconnect()
       if (wrapper) wrapper.removeEventListener("scroll", handleScroll)
     }
   }, [])
@@ -83,7 +54,7 @@ export default function Navbar() {
     <nav
       ref={navbarRef}
       style={{
-        position: "fixed",
+        position: "sticky",
         top: 0,
         left: 0,
         right: 0,
@@ -92,10 +63,9 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        background: scrolled ? "rgba(10,10,10,0.92)" : "transparent",
+        background: scrolled ? "rgba(10,10,10,0.92)" : "#0A0A0A",
         backdropFilter: scrolled ? "blur(16px)" : "none",
         transition: "background 0.3s ease, backdrop-filter 0.3s ease",
-        pointerEvents: visible ? "auto" : "none",
       }}
     >
       {/* Logo */}
