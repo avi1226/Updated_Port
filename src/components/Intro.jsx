@@ -71,16 +71,7 @@ export default function Intro() {
         }}
       >
         <div className="panel-1-content" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <TextFlippingBoard
-            phrases={["Welcome to my portfolio"]}
-            style={{
-              fontFamily: "'Space Mono', monospace",
-              fontSize: "clamp(28px, 5vw, 60px)",
-              fontWeight: 700,
-              color: "white",
-              textAlign: "center",
-            }}
-          />
+          <TextFlippingBoard text="WELCOME TO MY PORTFOLIO" />
         </div>
 
         {/* Scroll Indicator */}
@@ -119,16 +110,7 @@ export default function Intro() {
       >
         <div className="panel-2-content" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           {showPanel2 && (
-            <TextFlippingBoard
-              phrases={["I am Avinash"]}
-              style={{
-                fontFamily: "'Space Mono', monospace",
-                fontSize: "clamp(40px, 8vw, 96px)",
-                fontWeight: 900,
-                color: "white",
-                textAlign: "center",
-              }}
-            />
+            <TextFlippingBoard text="I AM AVINASH" />
           )}
         </div>
 
