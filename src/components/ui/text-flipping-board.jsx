@@ -112,27 +112,27 @@ const FlapCell = React.memo(function FlapCell({
 
   const textCx =
     "absolute inset-x-0 flex select-none items-center justify-center font-mono font-bold tracking-wide";
-  const topBg = accent?.top ?? "bg-neutral-200/80 dark:bg-neutral-900";
-  const bottomBg = accent?.bottom ?? "bg-neutral-200/80 dark:bg-neutral-900";
-  const textColor = accent?.text ?? "text-neutral-800 dark:text-white";
+  const topBg = accent?.top ?? "bg-black dark:bg-neutral-900";
+  const bottomBg = accent?.bottom ?? "bg-black dark:bg-neutral-900";
+  const textColor = accent?.text ?? "text-white dark:text-white";
 
-  const flapTopBg = prevAccent?.top ?? "bg-neutral-100 dark:bg-neutral-800";
-  const flapTextColor = prevAccent?.text ?? "text-neutral-800 dark:text-white";
+  const flapTopBg = prevAccent?.top ?? "bg-neutral-900 dark:bg-neutral-800";
+  const flapTextColor = prevAccent?.text ?? "text-white dark:text-white";
 
   const bottomDelay = flipDuration * 0.5;
 
   return (
     <div
-      className="flex aspect-[3/6] flex-col overflow-hidden rounded-[2px] border border-neutral-300 md:rounded-[3px] md:border-2 dark:border-black">
+      className="flex aspect-[3/6] flex-col overflow-hidden rounded-[2px] border border-neutral-800 md:rounded-[3px] md:border-2 dark:border-black">
       {/* Flap content area */}
       <div className="relative flex-1 [perspective:800px] [transform-style:preserve-3d]">
         <div
           className="absolute inset-0 z-40 hidden flex-row items-center justify-center md:flex">
           <div
-            className="h-1/2 w-px rounded-tr-sm rounded-br-sm bg-neutral-300 dark:bg-black" />
-          <div className="flex h-px flex-1 bg-neutral-300 dark:bg-black" />
+            className="h-1/2 w-px rounded-tr-sm rounded-br-sm bg-neutral-800 dark:bg-black" />
+          <div className="flex h-px flex-1 bg-neutral-800 dark:bg-black" />
           <div
-            className="h-1/2 w-px rounded-tl-sm rounded-bl-sm bg-neutral-300 dark:bg-black" />
+            className="h-1/2 w-px rounded-tl-sm rounded-bl-sm bg-neutral-800 dark:bg-black" />
         </div>
 
         {/* Static top – new character top half */}
@@ -259,7 +259,7 @@ const ColorCell = React.memo(function ColorCell({
 }) {
   return (
     <div
-      className="aspect-[3/5] rounded-[3px] border-2 border-neutral-300 dark:border-black"
+      className="aspect-[3/5] rounded-[3px] border-2 border-neutral-800 dark:border-black"
       style={{ backgroundColor: color }} />
   );
 });
@@ -371,7 +371,7 @@ export function TextFlippingBoard({
   return (
     <div
       className={cn(
-        "relative mx-auto w-full max-w-[95vw] sm:max-w-3xl rounded-xl bg-neutral-100 p-1 sm:p-2 shadow-xl md:rounded-2xl md:p-4 dark:bg-[#0a0a0a] dark:border dark:border-neutral-800 dark:shadow-[0_20px_70px_-15px_rgba(0,0,0,0.6)]",
+        "relative mx-auto w-full max-w-[100vw] sm:max-w-full rounded-xl bg-black p-1 sm:p-2 shadow-xl md:rounded-2xl md:p-4 dark:bg-[#0a0a0a] dark:border dark:border-neutral-800 dark:shadow-[0_20px_70px_-15px_rgba(0,0,0,0.6)]",
         className
       )}>
       <div
