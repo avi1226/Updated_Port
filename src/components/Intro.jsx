@@ -70,7 +70,7 @@ export default function Intro() {
           background: "radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%)",
         }}
       >
-        <div className="panel-1-content" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div className="panel-1-content" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", padding: "0 20px" }}>
           <TextFlippingBoard text="WELCOME TO MY PORTFOLIO" />
         </div>
 
@@ -86,7 +86,7 @@ export default function Intro() {
             <path d="M1 1l7 7 7-7" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span style={{
-            fontFamily: "'Space Mono', monospace", fontSize: "10px", color: "#404040",
+            fontFamily: "'Space Mono', monospace", fontSize: "10px", color: "#888888",
             letterSpacing: "0.3em", marginTop: "4px", textTransform: "uppercase",
           }}>
             scroll
@@ -108,7 +108,7 @@ export default function Intro() {
           background: "radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 65%)",
         }}
       >
-        <div className="panel-2-content" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div className="panel-2-content" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", padding: "0 20px" }}>
           {showPanel2 && (
             <TextFlippingBoard text="I AM AVINASH" />
           )}
@@ -125,7 +125,7 @@ export default function Intro() {
             <path d="M1 1l7 7 7-7" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span style={{
-            fontFamily: "'Space Mono', monospace", fontSize: "10px", color: "#404040",
+            fontFamily: "'Space Mono', monospace", fontSize: "10px", color: "#888888",
             letterSpacing: "0.3em", marginTop: "4px", textTransform: "uppercase",
           }}>
             enter

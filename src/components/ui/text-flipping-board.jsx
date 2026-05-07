@@ -123,9 +123,9 @@ const FlapCell = React.memo(function FlapCell({
 
   return (
     <div
-      className="flex aspect-3/6 flex-col overflow-hidden rounded-[2px] border border-neutral-300 md:rounded-[3px] md:border-2 dark:border-black">
+      className="flex aspect-[3/6] flex-col overflow-hidden rounded-[2px] border border-neutral-300 md:rounded-[3px] md:border-2 dark:border-black">
       {/* Flap content area */}
-      <div className="relative flex-1 perspective-dramatic transform-3d">
+      <div className="relative flex-1 [perspective:800px] [transform-style:preserve-3d]">
         <div
           className="absolute inset-0 z-40 hidden flex-row items-center justify-center md:flex">
           <div
@@ -174,7 +174,7 @@ const FlapCell = React.memo(function FlapCell({
           <motion.div
             key={flipId}
             className={cn(
-              "absolute inset-x-0 top-0 z-10 h-[calc(50%-0.5px)] origin-bottom overflow-hidden rounded-t-[3px] backface-hidden transform-3d",
+              "absolute inset-x-0 top-0 z-10 h-[calc(50%-0.5px)] origin-bottom overflow-hidden rounded-t-[3px] [backface-visibility:hidden] [transform-style:preserve-3d]",
               flapTopBg
             )}
             initial={{ rotateX: 0 }}
@@ -201,7 +201,7 @@ const FlapCell = React.memo(function FlapCell({
           <motion.div
             key={`b${flipId}`}
             className={cn(
-              "absolute inset-x-0 bottom-0 z-10 h-[calc(50%-0.5px)] origin-top overflow-hidden rounded-b-[3px] backface-hidden transform-3d",
+              "absolute inset-x-0 bottom-0 z-10 h-[calc(50%-0.5px)] origin-top overflow-hidden rounded-b-[3px] [backface-visibility:hidden] [transform-style:preserve-3d]",
               bottomBg
             )}
             initial={{ rotateX: 90 }}
@@ -233,7 +233,7 @@ const FlapCell = React.memo(function FlapCell({
       </div>
       {/* Bottom stripes – decorative, outside the flap area */}
       <div
-        className="h-2 w-full bg-[repeating-linear-gradient(to_bottom,currentColor_0,currentColor_1px,transparent_1px,transparent_0.15rem)] mask-t-from-50% text-neutral-400 opacity-20 md:h-4 md:bg-[repeating-linear-gradient(to_bottom,currentColor_0,currentColor_1px,transparent_1px,transparent_0.2rem)] dark:text-black dark:opacity-100" />
+        className="h-2 w-full bg-[repeating-linear-gradient(to_bottom,currentColor_0,currentColor_1px,transparent_1px,transparent_0.15rem)] [mask-image:linear-gradient(to_top,black_50%,transparent_50%)] text-neutral-400 opacity-20 md:h-4 md:bg-[repeating-linear-gradient(to_bottom,currentColor_0,currentColor_1px,transparent_1px,transparent_0.2rem)] dark:text-black dark:opacity-100" />
     </div>
   );
 }, (prevProps, nextProps) =>
@@ -259,7 +259,7 @@ const ColorCell = React.memo(function ColorCell({
 }) {
   return (
     <div
-      className="aspect-3/5 rounded-[3px] border-2 border-neutral-300 dark:border-black"
+      className="aspect-[3/5] rounded-[3px] border-2 border-neutral-300 dark:border-black"
       style={{ backgroundColor: color }} />
   );
 });
@@ -371,7 +371,7 @@ export function TextFlippingBoard({
   return (
     <div
       className={cn(
-        "relative mx-auto w-full max-w-3xl rounded-xl bg-neutral-100 p-2 shadow-xl md:rounded-2xl md:p-4 dark:bg-neutral-900 dark:shadow-[0_20px_70px_-15px_rgba(0,0,0,0.6)]",
+        "relative mx-auto w-full max-w-[95vw] sm:max-w-3xl rounded-xl bg-neutral-100 p-1 sm:p-2 shadow-xl md:rounded-2xl md:p-4 dark:bg-[#0a0a0a] dark:border dark:border-neutral-800 dark:shadow-[0_20px_70px_-15px_rgba(0,0,0,0.6)]",
         className
       )}>
       <div
