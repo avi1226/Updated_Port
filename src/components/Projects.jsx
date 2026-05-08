@@ -178,12 +178,28 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <HoverBorderGradient
-                    onClick={() => window.open(project.link, "_blank")}
-                    style={{ width: "100%", marginTop: "24px" }}
-                  >
-                    <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "13px" }}>View Project →</span>
-                  </HoverBorderGradient>
+                  <div style={{ display: "flex", gap: "12px", marginTop: "24px" }}>
+                    {project.githubLink && (
+                      <div style={{ flex: 1 }}>
+                        <HoverBorderGradient
+                          onClick={() => window.open(project.githubLink, "_blank")}
+                          style={{ width: "100%" }}
+                        >
+                          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "12px" }}>GitHub</span>
+                        </HoverBorderGradient>
+                      </div>
+                    )}
+                    {project.deployLink && (
+                      <div style={{ flex: 1 }}>
+                        <HoverBorderGradient
+                          onClick={() => window.open(project.deployLink, "_blank")}
+                          style={{ width: "100%" }}
+                        >
+                          <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "12px" }}>Live Demo →</span>
+                        </HoverBorderGradient>
+                      </div>
+                    )}
+                  </div>
                 </CardSpotlight>
               </CometCard>
             </div>
