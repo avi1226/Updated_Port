@@ -2,17 +2,29 @@
 
 const logos = [
   { name: "React", svg: "⚛" },
-  { name: "TypeScript", svg: "TS" },
+  { name: "PHP", svg: "TS" },
   { name: "JavaScript", svg: "JS" },
   { name: "Node.js", svg: "⬡" },
+  { name: "Netlify", svg: "⬡" },
+  { name: "Vercel", svg: "⬡" },
+  { name: "Vite", svg: "⬡" },
+  { name: "BootStrap", svg: "⬡" },
   { name: "Python", svg: "🐍" },
-  { name: "Next.js", svg: "▲" },
+  { name: "Node.js", svg: "▲" },
+  { name: "NPM", svg: "▲" },
   { name: "TailwindCSS", svg: "~" },
-  { name: "PostgreSQL", svg: "🐘" },
+  { name: "MySQL", svg: "🐘" },
+  { name: "Canva", svg: "🐘" },
   { name: "MongoDB", svg: "🍃" },
-  { name: "Docker", svg: "🐋" },
   { name: "Figma", svg: "◈" },
   { name: "Git", svg: "⌥" },
+  { name: "GitHub", svg: "⌥" },
+  { name: "C", svg: "⌥" },
+  { name: "Java", svg: "⌥" },
+  { name: "Markdown", svg: "⌥" },
+  { name: "C++", svg: "⌥" },
+  { name: "HTML", svg: "⌥" },
+  { name: "CSS", svg: "⌥" },
 ]
 
 function LogoItem({ name, svg }) {
