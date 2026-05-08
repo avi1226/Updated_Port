@@ -77,6 +77,8 @@ export default function DragZone() {
               <div key={card.id} style={{
                 background: "#1A1A1A", border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: "12px", padding: "20px", position: "relative",
+                animation: `floatCardMobile ${3 + (card.id % 2)}s ease-in-out infinite`,
+                animationDelay: `${card.id * 0.2}s`,
               }}>
                 <div style={{ position: "absolute", top: "12px", right: "12px" }}>{card.icon}</div>
                 <h3 style={{ fontFamily: "'Space Mono', monospace", fontSize: "14px", fontWeight: 700, color: "white", paddingRight: "24px" }}>
@@ -90,12 +92,27 @@ export default function DragZone() {
           </div>
         ) : (
           <div style={{ position: "relative", height: "calc(100vh - 200px)", minHeight: "400px" }}>
-            {CARDS_DATA.map((card) => (
+            <style>{`
+              @keyframes floatCard {
+                0% { transform: translate(0px, 0px) rotate(0deg); }
+                33% { transform: translate(6px, -12px) rotate(1.5deg); }
+                66% { transform: translate(-6px, 8px) rotate(-1deg); }
+                100% { transform: translate(0px, 0px) rotate(0deg); }
+              }
+              @keyframes floatCardMobile {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-3px); }
+                100% { transform: translateY(0px); }
+              }
+            `}</style>
+            {CARDS_DATA.map((card, i) => (
               <DraggableCard key={card.id} initialX={card.x} initialY={card.y}>
                 <div style={{
                   width: "260px", background: "#1A1A1A",
                   border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px",
                   padding: "28px 32px", position: "relative",
+                  animation: `floatCard ${4 + (i % 3)}s ease-in-out infinite`,
+                  animationDelay: `${i * 0.3}s`,
                 }}>
                   <div style={{ position: "absolute", top: "20px", right: "20px" }}>{card.icon}</div>
                   <h3 style={{ fontFamily: "'Space Mono', monospace", fontSize: "18px", fontWeight: 700, color: "white", paddingRight: "28px" }}>
