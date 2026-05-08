@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
-export function CinematicLoader({ onComplete, text1 = "INITIALIZING NEXT SECTION...", text2 = "LOADING ASSETS", duration = 1500, active = false }) {
+export function CinematicLoader({ onComplete, text1 = "loading...", duration = 2500, active = false }) {
   const [progress, setProgress] = useState(0);
   const [completed, setCompleted] = useState(false);
 
@@ -24,7 +24,7 @@ export function CinematicLoader({ onComplete, text1 = "INITIALIZING NEXT SECTION
         setCompleted(true);
         setTimeout(() => {
           if (onComplete) onComplete();
-        }, 200);
+        }, 300);
       }
     };
     
@@ -34,61 +34,67 @@ export function CinematicLoader({ onComplete, text1 = "INITIALIZING NEXT SECTION
   }, [active, duration, onComplete, completed]);
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center relative bg-black overflow-hidden font-mono text-white">
-      {/* Background Grid */}
+    <div className="w-full h-full flex flex-col relative bg-black overflow-hidden font-mono text-white selection:bg-white/20">
+      {/* Grid Background with moving glow */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-10"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
           `,
           backgroundSize: '40px 40px'
         }}
       ></div>
       
-      <div className="z-10 flex flex-col items-start w-full max-w-[90vw] md:max-w-xl px-6">
-        <motion.div 
-          className="text-[10px] md:text-xs text-neutral-500 mb-2 tracking-[0.3em] uppercase"
-          animate={active && progress < 100 ? { opacity: [0.5, 1, 0.5] } : { opacity: 1 }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          {progress === 100 ? "SYSTEM READY" : text2}
-        </motion.div>
-        
-        <div className="flex items-center text-sm md:text-base tracking-[0.2em] font-bold mb-6 h-6">
-          <motion.span 
-            animate={active && progress < 100 ? { x: [-1, 1, -0.5, 0.5, 0] } : { x: 0 }} 
-            transition={{ duration: 0.15, repeat: Infinity, repeatType: "mirror", repeatDelay: 1.2 }}
-          >
-            {text1}
-          </motion.span>
-          <motion.span 
-            animate={{ opacity: [1, 0] }}
-            transition={{ duration: 0.4, repeat: Infinity, repeatType: "reverse" }}
-            className="ml-2 w-[8px] h-[16px] bg-white block"
-          />
+      {/* Subtle Moving Glow */}
+      <motion.div 
+        className="absolute rounded-full bg-white/5 blur-[100px] pointer-events-none"
+        style={{ 
+          width: "max(40vw, 300px)", 
+          height: "max(40vw, 300px)",
+          top: "50%", 
+          left: "50%", 
+          marginLeft: "-max(20vw, 150px)",
+          marginTop: "-max(20vw, 150px)"
+        }}
+        animate={active ? { 
+          x: ["-10%", "10%", "0%", "-10%"], 
+          y: ["-10%", "5%", "-5%", "-10%"],
+          opacity: [0.3, 0.7, 0.3]
+        } : {}}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Container for bottom elements */}
+      <div className="absolute bottom-16 left-0 right-0 px-8 md:px-16 flex flex-col items-center z-10">
+        {/* Loader Text & Percentage */}
+        <div className="flex justify-between w-full max-w-[200px] mb-4 text-[9px] md:text-[10px] text-neutral-500 uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-3">
+            <motion.div 
+              className="w-1 h-1 bg-white rounded-full"
+              animate={active && progress < 100 ? { opacity: [1, 0.2] } : { opacity: 1 }}
+              transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
+            />
+            <span>{progress === 100 ? "completed" : text1}</span>
+          </div>
+          <span className="tabular-nums">{progress}%</span>
         </div>
 
-        {/* Loading Bar */}
-        <div className="w-full h-[1px] bg-neutral-800 relative mb-4">
+        {/* Tiny Loading Line */}
+        <div className="w-full max-w-[200px] h-[1px] bg-white/10 relative overflow-hidden">
           <motion.div 
-            className="absolute top-0 left-0 h-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+            className="absolute top-0 left-0 h-full bg-white/70 shadow-[0_0_8px_rgba(255,255,255,0.4)]"
             initial={{ width: "0%" }}
             animate={active ? { width: `${progress}%` } : {}}
             transition={{ duration: 0 }}
           />
         </div>
-
-        {/* Counter */}
-        <div className="flex justify-between w-full text-[10px] text-neutral-400 font-bold tracking-[0.2em]">
-          <span>{progress === 100 ? "ACCESS GRANTED" : "SYS.OP."}</span>
-          <span>{progress}%</span>
-        </div>
       </div>
       
-      {/* Subtle scanline overlay */}
+      {/* Very Subtle scanline overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[repeating-linear-gradient(to_bottom,transparent,transparent_2px,white_2px,white_4px)]"></div>
     </div>
   );
 }
+

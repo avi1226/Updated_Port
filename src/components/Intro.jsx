@@ -144,9 +144,8 @@ export default function Intro({ onLoadComplete }) {
         <CinematicLoader 
           active={loader1Active} 
           onComplete={handleLoader1Complete} 
-          text1="INITIALIZING NEXT SECTION..."
-          text2="LOADING PROJECT DATA"
-          duration={1200}
+          text1="loading..."
+          duration={2500}
         />
       </section>
 
@@ -198,9 +197,8 @@ export default function Intro({ onLoadComplete }) {
           <CinematicLoader 
             active={loader2Active} 
             onComplete={handleLoader2Complete} 
-            text1="INITIALIZING CORE SYSTEM..."
-            text2="PREPARING EXPERIENCE"
-            duration={1500}
+            text1="initializing..."
+            duration={2500}
           />
         </section>
       )}

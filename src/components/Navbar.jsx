@@ -5,8 +5,8 @@ import { useIsMobile } from "@/hooks/useIsMobile"
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
   { label: "Playground", href: "#playground" },
   { label: "Contact", href: "#contact" },
 ]
@@ -32,10 +32,8 @@ export default function Navbar() {
 
   const handleLinkClick = (e, href) => {
     e.preventDefault()
-    const wrapper = document.querySelector(".page-wrapper")
-    const target = document.querySelector(href)
-    if (wrapper && target) {
-      wrapper.scrollTo({ top: target.offsetTop, behavior: "smooth" })
+    if (window.scrollToPage) {
+      window.scrollToPage(href)
     }
   }
 
@@ -80,7 +78,7 @@ export default function Navbar() {
         onMouseEnter={(e) => gsap.to(e.currentTarget, { scale: 1.05, duration: 0.2 })}
         onMouseLeave={(e) => gsap.to(e.currentTarget, { scale: 1, duration: 0.2 })}
       >
-        AV.
+        AVI.
       </div>
 
       {/* Nav links */}
