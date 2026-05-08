@@ -113,7 +113,7 @@ export default function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Full Stack Developer · AI Builder · Chennai
+              Full Stack Developer · AI Builder · Hyderabad/Chennai
             </div>
 
             <div style={{ marginTop: "16px" }}>
@@ -151,6 +151,7 @@ export default function Hero() {
                 gap: "16px",
                 justifyContent: isMobile ? "center" : "flex-start",
                 flexWrap: "wrap",
+                alignItems: "center",
               }}
             >
               <button
@@ -162,11 +163,16 @@ export default function Hero() {
                   fontFamily: "'Space Mono', monospace",
                   fontSize: "13px",
                   fontWeight: 700,
-                  padding: "14px 32px",
+                  padding: "0 32px",
+                  height: "48px",
                   borderRadius: "8px",
                   border: "none",
                   cursor: "pointer",
                   transition: "transform 0.1s ease",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxSizing: "border-box",
                 }}
                 onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.97)")}
                 onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -183,12 +189,15 @@ export default function Hero() {
                   fontFamily: "'Space Mono', monospace",
                   fontSize: "13px",
                   fontWeight: 700,
-                  padding: "14px 32px",
+                  padding: "0 32px",
+                  height: "48px",
                   borderRadius: "8px",
                   border: "1px solid rgba(255,255,255,0.3)",
                   textDecoration: "none",
                   display: "inline-flex",
                   alignItems: "center",
+                  justifyContent: "center",
+                  boxSizing: "border-box",
                   transition: "border-color 0.2s ease",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.7)")}
@@ -201,7 +210,7 @@ export default function Hero() {
 
           {/* RIGHT COLUMN */}
           {!isMobile && (
-            <div ref={cardRef} style={{ flexShrink: 0 }}>
+            <div ref={cardRef} style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <ThreeDCard>
                 <div
                   style={{
@@ -214,14 +223,23 @@ export default function Hero() {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "12px",
+                    overflow: "hidden",
+                    position: "relative"
                   }}
                 >
-                  <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "64px", fontWeight: 900, color: "white" }}>AV</span>
-                  <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", color: "#A0A0A0" }}>Avinash</span>
-                  <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "12px", color: "#404040" }}>Developer</span>
+                  {/* Replace '/profile.jpg' with your actual image path */}
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Avinash" 
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover" 
+                    }} 
+                  />
                 </div>
               </ThreeDCard>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", color: "white", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>Avinash</span>
             </div>
           )}
         </div>
