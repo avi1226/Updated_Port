@@ -235,7 +235,7 @@ export default function Hero() {
                 >
                   {/* Replace '/profile.jpg' with your actual image path */}
                   <img 
-                    src="/profile.jpg" 
+                    src="./src/assets/p1.jpg" 
                     alt="Avinash" 
                     style={{ 
                       width: "100%", 
