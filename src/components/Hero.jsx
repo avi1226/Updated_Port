@@ -147,64 +147,70 @@ export default function Hero() {
               ref={ctaRef}
               style={{
                 marginTop: "40px",
-                display: "flex",
-                gap: "16px",
-                justifyContent: isMobile ? "center" : "flex-start",
-                flexWrap: "wrap",
-                alignItems: "center",
+                textAlign: isMobile ? "center" : "left",
               }}
             >
-              <button
-                onClick={scrollToProjects}
-                aria-label="View projects section"
-                style={{
-                  background: "white",
-                  color: "black",
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "13px",
-                  fontWeight: 700,
-                  padding: "0 32px",
-                  height: "48px",
-                  borderRadius: "8px",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "transform 0.1s ease",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxSizing: "border-box",
-                }}
-                onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.97)")}
-                onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              >
-                View Projects →
-              </button>
-              <a
-                href="/cv.pdf"
-                download
-                aria-label="Download CV"
-                style={{
-                  background: "transparent",
-                  color: "white",
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "13px",
-                  fontWeight: 700,
-                  padding: "0 32px",
-                  height: "48px",
-                  borderRadius: "8px",
-                  border: "1px solid rgba(255,255,255,0.3)",
-                  textDecoration: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxSizing: "border-box",
-                  transition: "border-color 0.2s ease",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.7)")}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)")}
-              >
-                Download CV
-              </a>
+              <div style={{ marginBottom: "20px" }}>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToProjects();
+                  }}
+                  aria-label="View projects section"
+                  style={{
+                    background: "white",
+                    color: "black",
+                    fontFamily: "'Space Mono', monospace",
+                    fontSize: "13px",
+                    fontWeight: 700,
+                    padding: "0 32px",
+                    height: "48px",
+                    borderRadius: "8px",
+                    border: "1px solid transparent",
+                    cursor: "pointer",
+                    transition: "transform 0.1s ease",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxSizing: "border-box",
+                    textDecoration: "none",
+                  }}
+                  onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.97)")}
+                  onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                >
+                  View Projects →
+                </a>
+              </div>
+              
+              <div>
+                <a
+                  href="/cv.pdf"
+                  download
+                  aria-label="Download CV"
+                  style={{
+                    background: "transparent",
+                    color: "white",
+                    fontFamily: "'Space Mono', monospace",
+                    fontSize: "13px",
+                    fontWeight: 700,
+                    padding: "0 32px",
+                    height: "48px",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(255,255,255,0.3)",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxSizing: "border-box",
+                    transition: "border-color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.7)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)")}
+                >
+                  Download CV
+                </a>
+              </div>
             </div>
           </div>
 
@@ -239,7 +245,7 @@ export default function Hero() {
                   />
                 </div>
               </ThreeDCard>
-              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", color: "white", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>Avinash</span>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", color: "white", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>Y Sree Naga Avinash</span>
             </div>
           )}
         </div>
