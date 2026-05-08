@@ -37,11 +37,10 @@ export const projects = [
     id: 4,
     title: "Real Estate Management System",
     description:
-      "An experimental project pushing creative and technical boundaries. Explores the intersection of generative art and web technology.",
+      "Developed a full-stack real estate management system with property listings, smart search filters, and integrated chatbot support.",
     tags: ["HTML","CSS","JavaScript","PHP","MySQL"],
     category: "Web Development",
     githubLink: "https://github.com/avi1226/real_estate",
-    deployLink: "#",
     featured: false,
   },
 ]
