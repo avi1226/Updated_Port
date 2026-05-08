@@ -60,10 +60,8 @@ export default function Hero() {
   }, [])
 
   const scrollToProjects = () => {
-    const wrapper = document.querySelector(".page-wrapper")
-    const target = document.querySelector("#projects")
-    if (wrapper && target) {
-      wrapper.scrollTo({ top: target.offsetTop, behavior: "smooth" })
+    if (window.scrollToPage) {
+      window.scrollToPage("projects")
     }
   }
 
@@ -108,7 +106,7 @@ export default function Hero() {
               style={{
                 fontFamily: "'Space Mono', monospace",
                 fontSize: "11px",
-                color: "#404040",
+                color: "#888888", // brightened from #404040
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
               }}
