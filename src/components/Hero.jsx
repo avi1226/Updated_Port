@@ -185,7 +185,7 @@ export default function Hero() {
               
               <div>
                 <a
-                  href="/cv.pdf"
+                  href="./src/assets/cv.pdf"
                   download
                   aria-label="Download CV"
                   style={{
