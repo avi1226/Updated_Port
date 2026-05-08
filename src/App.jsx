@@ -37,7 +37,7 @@ function NameSlide() {
   return (
     <section style={{ height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", background: "radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 65%)" }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", padding: "0 20px" }}>
-        <TextFlippingBoard text="I AM AVINASH" />
+        <TextFlippingBoard text="I AM YEMENENI SREE NAGA AVINASH" />
       </div>
       <ScrollIndicator text="ENTER" />
     </section>

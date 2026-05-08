@@ -165,7 +165,7 @@ export default function Intro({ onLoadComplete }) {
           }}
         >
           <div className="panel-2-content" style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%", padding: "0 20px" }}>
-            <TextFlippingBoard text="I AM AVINASH" />
+            <TextFlippingBoard text="I AM YEMENENI SREE NAGA AVINASH" />
           </div>
 
           <div style={{
