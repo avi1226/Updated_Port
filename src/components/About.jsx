@@ -82,7 +82,7 @@ export default function About() {
 
           <div style={{ marginTop: "24px" }}>
             <EncryptedText
-              text="I'm Avinash, a full-stack developer based in Chennai, India. I build AI-powered web apps, interactive experiences, and products that feel alive. Currently building StudyMap — an AI exam coaching tool. I care about code that's clean, interfaces that are fast, and experiences that are memorable."
+              text="I’m Avinash, a full-stack developer passionate about building AI-powered products and immersive digital experiences. I enjoy creating applications that are not only functional but also visually engaging and intuitive. Currently focused on blending AI, modern web technologies, and creative design into impactful real-world projects."
               trigger={triggerDecrypt}
               style={{
                 fontFamily: "'Inter', sans-serif",
@@ -101,7 +101,7 @@ export default function About() {
               gap: "10px",
             }}
           >
-            {["📍 Chennai, India", "🎓 Self-taught", "⚡ Available for work"].map((tag) => (
+            {["📍 Hyderabad, India", "🎓 Self-taught", "⚡ Available for work"].map((tag) => (
               <span
                 key={tag}
                 style={{
