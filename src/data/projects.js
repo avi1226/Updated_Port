@@ -16,7 +16,7 @@ export const projects = [
     title: "PDF TO QUIZ",
     description:
       "AI-powered PDF-to-Quiz platform that transforms study materials into interactive quizzes for smarter and faster learning.",
-    tags: ["Next.js", "TailwindCSS", "PostgreSQL"],
+    tags: ["React","Vite","PDF.js","Tesseract.js","Vanilla CSS","Mammoth.js"],
     category: "Web",
     githubLink: "https://github.com/avi1226/Pdf_to_Quiz",
     deployLink: "https://pdf-to-quiz18.vercel.app/",
