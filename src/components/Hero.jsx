@@ -138,7 +138,7 @@ export default function Hero() {
                 margin: isMobile ? "24px auto 0" : "24px 0 0",
               }}
             >
-              Chennai-based developer building AI-powered web apps, interactive experiences, and tools that feel alive.
+              Building next-generation web experiences with AI, clean design, and powerful functionality that users genuinely enjoy using.
             </p>
 
             <div
