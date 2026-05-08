@@ -1,5 +1,5 @@
 // src/components/DragZone.jsx
-import { MapPin, Code2, Zap, Mail } from "lucide-react"
+import { MapPin, Code2, Zap, Mail, Coffee } from "lucide-react"
 import { FollowingPointer } from "@/components/ui/following-pointer"
 import { DraggableCard } from "@/components/ui/draggable-card"
 import { useIsMobile } from "@/hooks/useIsMobile"
@@ -7,31 +7,38 @@ import { useIsMobile } from "@/hooks/useIsMobile"
 const CARDS_DATA = [
   {
     id: 1,
-    title: "Based in Chennai 🌏",
+    title: "From Hyderabad Currently Studying in Chennai 🌏",
     subtitle: "GMT+5:30 · Open to remote",
     icon: <MapPin size={18} color="#404040" />,
-    x: "8%", y: "25%",
+    x: "5%", y: "15%",
   },
   {
     id: 2,
-    title: "Building since 2022",
+    title: "Building since 2024",
     subtitle: "Self-taught, still learning",
     icon: <Code2 size={18} color="#404040" />,
-    x: "33%", y: "15%",
+    x: "38%", y: "8%",
   },
   {
     id: 3,
-    title: "Currently: StudyMap",
-    subtitle: "AI exam coaching app",
+    title: "Currently: ExpenseSpliter",
+    subtitle: "Split bills effortlessly with friends.",
     icon: <Zap size={18} color="#404040" />,
-    x: "57%", y: "35%",
+    x: "68%", y: "20%",
   },
   {
     id: 4,
     title: "Open to freelance",
     subtitle: "DM me, let's build",
     icon: <Mail size={18} color="#404040" />,
-    x: "76%", y: "20%",
+    x: "60%", y: "60%",
+  },
+  {
+    id: 5,
+    title: "Hobbies",
+    subtitle: "Playing Cricket, Watching Esports, Gaming, and building projects.",
+    icon: <Coffee size={18} color="#404040" />,
+    x: "15%", y: "65%",
   },
 ]
 
@@ -72,10 +79,10 @@ export default function DragZone() {
                 borderRadius: "12px", padding: "20px", position: "relative",
               }}>
                 <div style={{ position: "absolute", top: "12px", right: "12px" }}>{card.icon}</div>
-                <h3 style={{ fontFamily: "'Space Mono', monospace", fontSize: "14px", fontWeight: 700, color: "white" }}>
+                <h3 style={{ fontFamily: "'Space Mono', monospace", fontSize: "14px", fontWeight: 700, color: "white", paddingRight: "24px" }}>
                   {card.title}
                 </h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", color: "#A0A0A0", marginTop: "4px" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", color: "#A0A0A0", marginTop: "12px" }}>
                   {card.subtitle}
                 </p>
               </div>
@@ -91,10 +98,10 @@ export default function DragZone() {
                   padding: "28px 32px", position: "relative",
                 }}>
                   <div style={{ position: "absolute", top: "20px", right: "20px" }}>{card.icon}</div>
-                  <h3 style={{ fontFamily: "'Space Mono', monospace", fontSize: "18px", fontWeight: 700, color: "white" }}>
+                  <h3 style={{ fontFamily: "'Space Mono', monospace", fontSize: "18px", fontWeight: 700, color: "white", paddingRight: "28px" }}>
                     {card.title}
                   </h3>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#A0A0A0", marginTop: "8px" }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#A0A0A0", marginTop: "16px" }}>
                     {card.subtitle}
                   </p>
                 </div>
