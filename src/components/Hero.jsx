@@ -245,7 +245,7 @@ export default function Hero() {
                   />
                 </div>
               </ThreeDCard>
-              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", color: "white", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>Y Sree Naga Avinash</span>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", color: "white", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>YEMENENI SREE NAGA AVINASH</span>
             </div>
           )}
         </div>
