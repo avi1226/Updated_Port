@@ -4,6 +4,8 @@ import { gsap } from "gsap"
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 import { ThreeDCard } from "@/components/ui/3d-card"
 import { useIsMobile } from "@/hooks/useIsMobile"
+import p1 from "@/assets/p1.jpg"
+import cv from "@/assets/cv.pdf"
 
 export default function Hero() {
   const eyebrowRef = useRef(null)
@@ -183,8 +185,8 @@ export default function Hero() {
               
               <div>
                 <a
-                  href="./src/assets/cv.pdf"
-                  download
+                  href={cv}
+                  download="Avinash_CV.pdf"
                   aria-label="Download CV"
                   style={{
                     background: "transparent",
@@ -233,7 +235,7 @@ export default function Hero() {
                 >
                   {/* Replace '/profile.jpg' with your actual image path */}
                   <img 
-                    src="./src/assets/p1.jpg" 
+                    src={p1} 
                     alt="Avinash" 
                     style={{ 
                       width: "100%", 
