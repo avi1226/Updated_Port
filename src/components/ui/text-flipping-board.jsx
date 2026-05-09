@@ -29,7 +29,7 @@ const ACCENT_COLORS = [
 ];
 
 const CELL_TEXT_STYLE = {
-  fontSize: "clamp(6px, 2vw, 22px)",
+  fontSize: "clamp(10px, 3vw, 28px)",
   lineHeight: 1,
 };
 
@@ -111,13 +111,13 @@ const FlapCell = React.memo(function FlapCell({
   const showPrev = prev === " " ? "\u00A0" : prev;
 
   const textCx =
-    "absolute inset-x-0 flex select-none items-center justify-center font-mono font-bold tracking-wide";
-  const topBg = accent?.top ?? "bg-black dark:bg-neutral-900";
-  const bottomBg = accent?.bottom ?? "bg-black dark:bg-neutral-900";
-  const textColor = accent?.text ?? "text-white dark:text-white";
+    "absolute inset-x-0 flex select-none items-center justify-center font-mono font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,1)] brightness-[2] text-white";
+  const topBg = accent?.top ?? "bg-black";
+  const bottomBg = accent?.bottom ?? "bg-black";
+  const textColor = accent?.text ?? "";
 
-  const flapTopBg = prevAccent?.top ?? "bg-neutral-900 dark:bg-neutral-800";
-  const flapTextColor = prevAccent?.text ?? "text-white dark:text-white";
+  const flapTopBg = prevAccent?.top ?? "bg-black";
+  const flapTextColor = prevAccent?.text ?? "text-white";
 
   const bottomDelay = flipDuration * 0.5;
 
