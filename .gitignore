@@ -1,10 +1,14 @@
 # Dependencies
 node_modules/
+.pnp
+.pnp.js
 
 # Build output
 dist/
 dist-ssr/
 build/
+out/
+.vercel
 
 # Logs
 logs/
@@ -21,15 +25,16 @@ lerna-debug.log*
 .env.development.local
 .env.test.local
 .env.production.local
+*.env.local
 
 # Local config
 *.local
+.eslintcache
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea/
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
@@ -37,18 +42,21 @@ lerna-debug.log*
 *.sw?
 
 # OS files
+.DS_Store
 Thumbs.db
 Desktop.ini
-
-# Package manager lock files (optional - keep if you prefer)
-# package-lock.json
-# yarn.lock
 
 # Coverage & testing
 coverage/
 *.lcov
+.nyc_output
 
 # Cache
 .cache/
 .parcel-cache/
-.eslintcache
+.vite
+.turbo
+
+# Temporary files
+tmp/
+temp/
