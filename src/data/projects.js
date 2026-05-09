@@ -30,7 +30,6 @@ export const projects = [
     tags: ["React","Tailwind CSS","Node.js","MongoDB","Socket.io","Express.js","JWT"],
     category: "Web",
     githubLink: "https://github.com/avi1226/bgmi_auction",
-    deployLink: "#",
     featured: false,
   },
   {
