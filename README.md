@@ -1,16 +1,40 @@
-# React + Vite
+# Avinash — Full Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio. This is a high-end, interactive web experience built with React, Vite, and Matter.js, featuring brutalist design aesthetics and smooth cinematic transitions.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend:** React 19, Vite, Tailwind CSS
+- **Animations:** GSAP (ScrollTrigger), Framer Motion
+- **Physics:** Matter.js (Chaos Room)
+- **Icons:** Lucide React
+- **Design:** Custom Vanilla CSS with a focus on typography and micro-interactions
 
-## React Compiler
+## 🛠️ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Cinematic Transitions:** Each section is treated as a standalone "page" with fluid, state-based transitions.
+- **The Playground:** An interactive sandbox featuring a Typography Chaos Room with real-time physics.
+- **Projects:** A curated showcase of my full-stack and AI-powered applications.
+- **Responsive Design:** Optimized for all screen sizes with a custom cursor experience.
 
-## Expanding the ESLint configuration
+## 📦 Installation & Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/avi1226/Updated_Port.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📄 License
+
+This project is personal and is not intended for redistribution as a template. All rights reserved.
+
+---
+Built with ❤️ by [Avinash](https://github.com/avi1226)
