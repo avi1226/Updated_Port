@@ -90,7 +90,7 @@ export default function Playground() {
           }}>
             <span style={{
               fontFamily: "'Space Mono', monospace", fontSize: "10px",
-              color: "#404040", letterSpacing: "0.2em", textTransform: "uppercase",
+              color: "#AAAAAA", letterSpacing: "0.2em", textTransform: "uppercase",
             }}>
               Move your mouse around
             </span>

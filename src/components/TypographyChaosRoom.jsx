@@ -15,6 +15,7 @@ const TypographyChaosRoom = () => {
   const runnerRef = useRef(null);
   const bodiesRef = useRef([]);
   const mouseRef = useRef({ x: 0, y: 0, vx: 0, vy: 0, lastX: 0, lastY: 0 });
+  const flashRef = useRef(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -76,11 +77,40 @@ const TypographyChaosRoom = () => {
     // Rendering loop
     let animationId;
     const render = () => {
+      // Clear with background
       ctx.fillStyle = '#0A0A0A';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Mouse force application
+      // Mouse following glow
       const mouse = mouseRef.current;
+      const gradient = ctx.createRadialGradient(
+        mouse.x, mouse.y, 0,
+        mouse.x, mouse.y, 500
+      );
+      gradient.addColorStop(0, 'rgba(255, 255, 255, 0.12)');
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Central ambient glow
+      const ambientGradient = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height / 2, 0,
+        canvas.width / 2, canvas.height / 2, canvas.width
+      );
+      ambientGradient.addColorStop(0, 'rgba(255, 255, 255, 0.03)');
+      ambientGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = ambientGradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw flash effect
+      if (flashRef.current > 0) {
+        ctx.fillStyle = `rgba(255, 255, 255, ${flashRef.current * 0.15})`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        flashRef.current *= 0.85;
+        if (flashRef.current < 0.01) flashRef.current = 0;
+      }
+
+      // Mouse force application
       bodiesRef.current.forEach(body => {
         const dx = body.position.x - mouse.x;
         const dy = body.position.y - mouse.y;
@@ -104,6 +134,10 @@ const TypographyChaosRoom = () => {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       
+      // Add strong glow
+      ctx.shadowBlur = 30;
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.6)';
+      
       bodiesRef.current.forEach(body => {
         const { x, y } = body.position;
         const angle = body.angle;
@@ -116,6 +150,9 @@ const TypographyChaosRoom = () => {
         ctx.fillText(word, 0, 0);
         ctx.restore();
       });
+
+      // Reset shadow for next frame
+      ctx.shadowBlur = 0;
 
       animationId = requestAnimationFrame(render);
     };
@@ -134,6 +171,7 @@ const TypographyChaosRoom = () => {
     if (!isActive || !engineRef.current) return;
 
     if (showHint) setShowHint(false);
+    flashRef.current = 1.0;
 
     const rect = canvasRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -199,7 +237,7 @@ const TypographyChaosRoom = () => {
         left: '20px',
         fontFamily: "'Space Mono', monospace",
         fontSize: '10px',
-        color: '#404040',
+        color: '#888888',
         letterSpacing: '0.2em',
         zIndex: 10,
         pointerEvents: 'none'
@@ -217,7 +255,7 @@ const TypographyChaosRoom = () => {
           fontSize: '12px',
           color: '#FFFFFF',
           letterSpacing: '0.5em',
-          opacity: 0.5,
+          opacity: 0.8,
           pointerEvents: 'none',
           transition: 'opacity 0.5s ease'
         }}>
