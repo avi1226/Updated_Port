@@ -215,39 +215,57 @@ export default function Hero() {
           </div>
 
           {/* RIGHT COLUMN */}
-          {!isMobile && (
-            <div ref={cardRef} style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <ThreeDCard>
-                <div
-                  style={{
-                    width: "280px",
-                    height: "360px",
-                    background: "#1A1A1A",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    borderRadius: "16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    overflow: "hidden",
-                    position: "relative"
-                  }}
-                >
-                  {/* Replace '/profile.jpg' with your actual image path */}
-                  <img 
-                    src={p1} 
-                    alt="Avinash" 
-                    style={{ 
-                      width: "100%", 
-                      height: "100%", 
-                      objectFit: "cover" 
-                    }} 
-                  />
-                </div>
-              </ThreeDCard>
-              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "16px", color: "white", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase" }}>YEMENENI SREE NAGA AVINASH</span>
-            </div>
-          )}
+          <div 
+            ref={cardRef} 
+            style={{ 
+              flexShrink: 0, 
+              display: "flex", 
+              flexDirection: "column", 
+              alignItems: "center", 
+              gap: isMobile ? "12px" : "16px",
+              marginTop: isMobile ? "20px" : "0",
+              width: isMobile ? "100%" : "auto"
+            }}
+          >
+            <ThreeDCard>
+              <div
+                style={{
+                  width: isMobile ? "220px" : "280px",
+                  height: isMobile ? "280px" : "360px",
+                  background: "#1A1A1A",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  position: "relative"
+                }}
+              >
+                <img 
+                  src={p1} 
+                  alt="Avinash" 
+                  style={{ 
+                    width: "100%", 
+                    height: "100%", 
+                    objectFit: "cover" 
+                  }} 
+                />
+              </div>
+            </ThreeDCard>
+            <span style={{ 
+              fontFamily: "'Space Mono', monospace", 
+              fontSize: isMobile ? "12px" : "16px", 
+              color: "white", 
+              fontWeight: 700, 
+              letterSpacing: "2px", 
+              textTransform: "uppercase",
+              textAlign: "center"
+            }}>
+              YEMENENI SREE NAGA AVINASH
+            </span>
+          </div>
         </div>
       </div>
     </section>

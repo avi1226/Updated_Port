@@ -7,6 +7,7 @@ import { SplashCursor } from "@/components/bits/SplashCursor"
 import LoadingScreen from "@/components/LoadingScreen"
 import { motion, AnimatePresence } from "motion/react"
 import { TextFlippingBoard } from "@/components/ui/text-flipping-board"
+import { useIsMobile } from "@/hooks/useIsMobile"
 
 // Register GSAP plugins globally
 gsap.registerPlugin(ScrollTrigger)
@@ -83,6 +84,7 @@ export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
+  const isMobile = useIsMobile()
 
   // Listen to wheel and touch events for full-page scrolling
   useEffect(() => {
@@ -187,9 +189,9 @@ export default function App() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, y: 80, filter: "blur(8px)" }}
+                initial={{ opacity: 0, y: isMobile ? 40 : 80, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)", transition: { delay: 0.6, duration: 1.2, ease: [0.16, 1, 0.3, 1] } }}
-                exit={{ opacity: 0, y: -80, filter: "blur(8px)", transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
+                exit={{ opacity: 0, y: isMobile ? -40 : -80, filter: "blur(8px)", transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
                 style={{ position: "absolute", inset: 0, height: "100vh", width: "100vw", overflowY: "auto" }}
                 className="internal-scroll"
               >

@@ -125,7 +125,7 @@ export default function About() {
           style={{
             flex: isMobile ? "1" : "0 0 45%",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
             gap: "16px",
           }}
         >

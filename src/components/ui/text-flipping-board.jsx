@@ -112,6 +112,11 @@ const FlapCell = React.memo(function FlapCell({
 
   const textCx =
     "absolute inset-x-0 flex select-none items-center justify-center font-mono font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,1)] brightness-[2] text-white";
+  const textStyle = {
+    ...CELL_TEXT_STYLE,
+    WebkitTextStroke: "1px white", // Make it "one more bold"
+    textShadow: "0 0 1px white",
+  };
   const topBg = accent?.top ?? "bg-black";
   const bottomBg = accent?.bottom ?? "bg-black";
   const textColor = accent?.text ?? "";
@@ -143,7 +148,7 @@ const FlapCell = React.memo(function FlapCell({
           )}>
           <div
             className={cn(textCx, textColor, "top-0 h-[200%]")}
-            style={CELL_TEXT_STYLE}>
+            style={textStyle}>
             {show}
           </div>
         </div>
@@ -156,7 +161,7 @@ const FlapCell = React.memo(function FlapCell({
           )}>
           <div
             className={cn(textCx, textColor, "bottom-0 h-[200%]")}
-            style={CELL_TEXT_STYLE}>
+            style={textStyle}>
             {show}
           </div>
           {flipId > 0 && (
@@ -185,7 +190,7 @@ const FlapCell = React.memo(function FlapCell({
             }}>
             <div
               className={cn(textCx, flapTextColor, "top-0 h-[200%]")}
-              style={CELL_TEXT_STYLE}>
+              style={textStyle}>
               {showPrev}
             </div>
             <motion.div
@@ -213,7 +218,7 @@ const FlapCell = React.memo(function FlapCell({
             }}>
             <div
               className={cn(textCx, textColor, "bottom-0 h-[200%]")}
-              style={CELL_TEXT_STYLE}>
+              style={textStyle}>
               {show}
             </div>
             <motion.div
@@ -326,6 +331,19 @@ export function TextFlippingBoard({
   className,
   duration = BASE_TOTAL_S
 }) {
+  const [cols, setCols] = useState(BOARD_COLS);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setCols(14);
+      else if (window.innerWidth < 1024) setCols(18);
+      else setCols(BOARD_COLS);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const scale = duration / BASE_TOTAL_S;
   const colDelay = BASE_COL_DELAY * scale;
   const rowDelay = BASE_ROW_DELAY * scale;
@@ -334,21 +352,21 @@ export function TextFlippingBoard({
 
   const board = useMemo(() => {
     const grid = Array.from({ length: BOARD_ROWS }, () =>
-      Array.from({ length: BOARD_COLS }, () => ({
+      Array.from({ length: cols }, () => ({
         type: "char",
         value: " ",
       })));
 
     if (text) {
-      const lines = wrapText(text, BOARD_COLS).slice(0, BOARD_ROWS);
+      const lines = wrapText(text, cols).slice(0, BOARD_ROWS);
       const startRow = Math.max(0, Math.floor((BOARD_ROWS - lines.length) / 2));
       lines.forEach((line, i) => {
         const row = startRow + i;
         if (row >= BOARD_ROWS) return;
         const parsed = parseRow(line);
-        const startCol = Math.max(0, Math.floor((BOARD_COLS - parsed.length) / 2));
+        const startCol = Math.max(0, Math.floor((cols - parsed.length) / 2));
         parsed.forEach((cell, c) => {
-          if (startCol + c < BOARD_COLS) {
+          if (startCol + c < cols) {
             grid[row][startCol + c] = cell;
           }
         });
@@ -358,7 +376,7 @@ export function TextFlippingBoard({
         if (r >= BOARD_ROWS) return;
         const parsed = parseRow(row);
         parsed.forEach((cell, c) => {
-          if (c < BOARD_COLS) {
+          if (c < cols) {
             grid[r][c] = cell;
           }
         });
@@ -366,7 +384,7 @@ export function TextFlippingBoard({
     }
 
     return grid;
-  }, [rows, text]);
+  }, [rows, text, cols]);
 
   return (
     <div
@@ -376,7 +394,7 @@ export function TextFlippingBoard({
       )}>
       <div
         className="grid gap-px md:gap-[3px]"
-        style={{ gridTemplateColumns: `repeat(${BOARD_COLS}, 1fr)` }}>
+        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
         {board.map((row, r) =>
           row.map((cell, c) =>
             cell.type === "color" ? (
@@ -393,3 +411,4 @@ export function TextFlippingBoard({
     </div>
   );
 }
+
