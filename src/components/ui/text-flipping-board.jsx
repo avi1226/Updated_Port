@@ -111,11 +111,9 @@ const FlapCell = React.memo(function FlapCell({
   const showPrev = prev === " " ? "\u00A0" : prev;
 
   const textCx =
-    "absolute inset-0 flex select-none items-center justify-center font-mono font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,1)] brightness-[2] text-white";
+    "absolute inset-0 flex select-none items-center justify-center font-mono font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,1)] brightness-[2] text-white md:[webkit-text-stroke:1px_white] md:[text-shadow:0_0_1px_white]";
   const textStyle = {
     ...CELL_TEXT_STYLE,
-    WebkitTextStroke: "1px white", // Make it "one more bold"
-    textShadow: "0 0 1px white",
   };
   const topBg = accent?.top ?? "bg-black";
   const bottomBg = accent?.bottom ?? "bg-black";
