@@ -111,7 +111,7 @@ const FlapCell = React.memo(function FlapCell({
   const showPrev = prev === " " ? "\u00A0" : prev;
 
   const textCx =
-    "absolute inset-x-0 flex select-none items-center justify-center font-mono font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,1)] brightness-[2] text-white";
+    "absolute inset-0 flex select-none items-center justify-center font-mono font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,1)] brightness-[2] text-white";
   const textStyle = {
     ...CELL_TEXT_STYLE,
     WebkitTextStroke: "1px white", // Make it "one more bold"
@@ -142,32 +142,27 @@ const FlapCell = React.memo(function FlapCell({
 
         {/* Static top – new character top half */}
         <div
-          className={cn(
-            "absolute inset-x-0 top-0 h-[calc(50%-0.5px)] overflow-hidden rounded-t-[3px]",
-            topBg
-          )}>
-          <div
-            className={cn(textCx, textColor, "top-0 h-[200%]")}
-            style={textStyle}>
+          className={cn("absolute inset-0 rounded-t-[3px]", topBg)}
+          style={{ WebkitClipPath: "inset(0 0 50% 0)", clipPath: "inset(0 0 50% 0)" }}
+        >
+          <div className={cn(textCx, textColor, "h-full")} style={textStyle}>
             {show}
           </div>
         </div>
 
         {/* Static bottom – new character bottom half */}
         <div
-          className={cn(
-            "absolute inset-x-0 bottom-0 h-[calc(50%-0.5px)] overflow-hidden rounded-b-[3px]",
-            bottomBg
-          )}>
-          <div
-            className={cn(textCx, textColor, "top-[-100%] h-[200%]")}
-            style={textStyle}>
+          className={cn("absolute inset-0 rounded-b-[3px]", bottomBg)}
+          style={{ WebkitClipPath: "inset(50% 0 0 0)", clipPath: "inset(50% 0 0 0)" }}
+        >
+          <div className={cn(textCx, textColor, "h-full")} style={textStyle}>
             {show}
           </div>
           {flipId > 0 && (
             <motion.div
               key={`s${flipId}`}
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.8),transparent_60%)] dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.8),transparent_60%)]"
+              style={{ WebkitClipPath: "inset(50% 0 0 0)", clipPath: "inset(50% 0 0 0)" }}
               initial={{ opacity: 0.5 }}
               animate={{ opacity: 0 }}
               transition={{ duration: flipDuration * 1.3, ease: "easeOut" }} />
@@ -178,24 +173,24 @@ const FlapCell = React.memo(function FlapCell({
         {flipId > 0 && (
           <motion.div
             key={flipId}
-            className={cn(
-              "absolute inset-x-0 top-0 z-10 h-[calc(50%-0.5px)] origin-bottom [backface-visibility:hidden] [transform-style:preserve-3d]"
-            )}
+            className="absolute inset-0 z-10 origin-center [backface-visibility:hidden] [transform-style:preserve-3d]"
             initial={{ rotateX: 0 }}
             animate={{ rotateX: -100 }}
             transition={{
               duration: flipDuration,
               ease: [0.55, 0.055, 0.675, 0.19],
             }}>
-            <div className={cn("absolute inset-0 overflow-hidden rounded-t-[3px]", flapTopBg)}>
-              <div
-                className={cn(textCx, flapTextColor, "top-0 h-[200%]")}
-                style={textStyle}>
+            <div
+              className={cn("absolute inset-0 rounded-t-[3px]", flapTopBg)}
+              style={{ WebkitClipPath: "inset(0 0 50% 0)", clipPath: "inset(0 0 50% 0)" }}
+            >
+              <div className={cn(textCx, flapTextColor, "h-full")} style={textStyle}>
                 {showPrev}
               </div>
             </div>
             <motion.div
               className="pointer-events-none absolute inset-0 rounded-t-[3px] bg-[linear-gradient(to_bottom,rgba(255,255,255,0),rgba(255,255,255,1))] dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1))]"
+              style={{ WebkitClipPath: "inset(0 0 50% 0)", clipPath: "inset(0 0 50% 0)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
               transition={{ duration: flipDuration }} />
@@ -206,9 +201,7 @@ const FlapCell = React.memo(function FlapCell({
         {flipId > 0 && (
           <motion.div
             key={`b${flipId}`}
-            className={cn(
-              "absolute inset-x-0 bottom-0 z-10 h-[calc(50%-0.5px)] origin-top [backface-visibility:hidden] [transform-style:preserve-3d]"
-            )}
+            className="absolute inset-0 z-10 origin-center [backface-visibility:hidden] [transform-style:preserve-3d]"
             initial={{ rotateX: 90 }}
             animate={{ rotateX: 0 }}
             transition={{
@@ -216,15 +209,17 @@ const FlapCell = React.memo(function FlapCell({
               delay: bottomDelay,
               ease: [0.33, 1.55, 0.64, 1],
             }}>
-            <div className={cn("absolute inset-0 overflow-hidden rounded-b-[3px]", bottomBg)}>
-              <div
-                className={cn(textCx, textColor, "top-[-100%] h-[200%]")}
-                style={textStyle}>
+            <div
+              className={cn("absolute inset-0 rounded-b-[3px]", bottomBg)}
+              style={{ WebkitClipPath: "inset(50% 0 0 0)", clipPath: "inset(50% 0 0 0)" }}
+            >
+              <div className={cn(textCx, textColor, "h-full")} style={textStyle}>
                 {show}
               </div>
             </div>
             <motion.div
               className="pointer-events-none absolute inset-0 rounded-b-[3px] bg-[linear-gradient(to_top,rgba(255,255,255,0),rgba(255,255,255,0.6))] dark:bg-[linear-gradient(to_top,rgba(0,0,0,0),rgba(0,0,0,0.6))]"
+              style={{ WebkitClipPath: "inset(50% 0 0 0)", clipPath: "inset(50% 0 0 0)" }}
               initial={{ opacity: 0.4 }}
               animate={{ opacity: 0 }}
               transition={{
