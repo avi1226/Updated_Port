@@ -8,7 +8,7 @@ import { useIsMobile } from "@/hooks/useIsMobile"
 const STATS = [
   { value: "3+", label: "Years Building" },
   { value: "10+", label: "Projects Shipped" },
-  { value: "5+", label: "AI Apps Built" },
+  { value: "5+", label: "Apps Built" },
   { value: "∞", label: "Things to Learn" },
 ]
 
