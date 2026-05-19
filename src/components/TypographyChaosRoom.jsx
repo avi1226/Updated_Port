@@ -3,7 +3,7 @@ import Matter from 'matter-js';
 
 const WORDS_POOL = [
   "CHAOS", "BUILD", "SHIP", "BREAK", "DEBUG", "DEPLOY", "RENDER", "THINK", "CRASH", "LOOP",
-  "STACK", "PUSH", "MERGE", "HACK", "DREAM", "ITERATE", "NULL", "VOID", "ASYNC", "ERROR","VIRAT","CRICKET","CODING","DSA","AVINASH","SLEEP","FOOD","PLAY","BGMI","PHONE"
+  "STACK", "PUSH", "MERGE", "HACK", "DREAM", "ITERATE", "NULL", "VOID", "ASYNC", "ERROR","VIRAT","CRICKET","CODING","DSA","AVINASH","SLEEP","FOOD","PLAY","BGMI","PHONE","LOVE","LIFE","CARS","FAMILY","EGO","RICH","SRM","PEG","MAHADEV","MOM","SISTER"
 ];
 
 const TypographyChaosRoom = () => {
