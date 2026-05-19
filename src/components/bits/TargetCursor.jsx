@@ -1,12 +1,16 @@
 // src/components/bits/TargetCursor.jsx
 import { useEffect, useRef, useState } from "react"
+import { useIsMobile } from "@/hooks/useIsMobile"
 
 export function TargetCursor() {
+  const isMobile = useIsMobile()
   const cursorRef = useRef(null)
   const ringRef = useRef(null)
   const [clicked, setClicked] = useState(false)
 
   useEffect(() => {
+    if (isMobile) return
+
     const cursor = cursorRef.current
     const ring = ringRef.current
     if (!cursor || !ring) return
@@ -35,7 +39,9 @@ export function TargetCursor() {
     return () => {
       window.removeEventListener("mousemove", moveCursor)
     }
-  }, [])
+  }, [isMobile])
+
+  if (isMobile) return null
 
   return (
     <>
