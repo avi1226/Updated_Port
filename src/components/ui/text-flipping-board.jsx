@@ -29,7 +29,7 @@ const ACCENT_COLORS = [
 ];
 
 const CELL_TEXT_STYLE = {
-  fontSize: "clamp(10px, 3vw, 28px)",
+  fontSize: "clamp(12px, 4vw, 28px)",
   lineHeight: 1,
 };
 
@@ -335,7 +335,8 @@ export function TextFlippingBoard({
   
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) setCols(14);
+      if (window.innerWidth < 450) setCols(12);
+      else if (window.innerWidth < 640) setCols(14);
       else if (window.innerWidth < 1024) setCols(18);
       else setCols(BOARD_COLS);
     };

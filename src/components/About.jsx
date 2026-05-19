@@ -125,8 +125,8 @@ export default function About() {
           style={{
             flex: isMobile ? "1" : "0 0 45%",
             display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
-            gap: "16px",
+            gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "1fr 1fr",
+            gap: isMobile ? "12px" : "16px",
           }}
         >
           {STATS.map((stat) => (
@@ -136,7 +136,7 @@ export default function About() {
                 background: "#111111",
                 border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: "12px",
-                padding: "28px",
+                padding: isMobile ? "16px" : "28px",
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -144,7 +144,7 @@ export default function About() {
               <span
                 style={{
                   fontFamily: "'Space Mono', monospace",
-                  fontSize: "48px",
+                  fontSize: isMobile ? "32px" : "48px",
                   fontWeight: 900,
                   color: "white",
                 }}

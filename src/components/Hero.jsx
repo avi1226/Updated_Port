@@ -71,10 +71,13 @@ export default function Hero() {
     <section
       id="hero"
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
         background: "#0A0A0A",
+        display: "flex",
+        alignItems: "center",
+        padding: isMobile ? "80px 0 40px" : "0",
       }}
     >
       <BackgroundBeamsWithCollision />
@@ -95,14 +98,14 @@ export default function Hero() {
           style={{
             display: "flex",
             flexDirection: isMobile ? "column" : "row",
-            gap: isMobile ? "40px" : "80px",
+            gap: isMobile ? "32px" : "80px",
             alignItems: "center",
             width: "100%",
             textAlign: isMobile ? "center" : "left",
           }}
         >
           {/* LEFT COLUMN */}
-          <div style={{ flex: 1, maxWidth: isMobile ? "100%" : "600px" }}>
+          <div style={{ flex: 1, maxWidth: isMobile ? "100%" : "600px", width: "100%" }}>
             <div
               ref={eyebrowRef}
               style={{
@@ -116,14 +119,14 @@ export default function Hero() {
               Full Stack Developer · AI Builder · Hyderabad/Chennai
             </div>
 
-            <div style={{ marginTop: "16px" }}>
-              <div ref={line1Ref} style={{ fontFamily: "'Space Mono', monospace", fontSize: "clamp(16px, 3vw, 28px)", fontWeight: 300, color: "#A0A0A0" }}>
+            <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <div ref={line1Ref} style={{ fontFamily: "'Space Mono', monospace", fontSize: "clamp(20px, 4vw, 28px)", fontWeight: 300, color: "#A0A0A0" }}>
                 I build
               </div>
-              <div ref={line2Ref} style={{ fontFamily: "'Space Mono', monospace", fontSize: "clamp(16px, 3vw, 28px)", fontWeight: 300, color: "#A0A0A0" }}>
+              <div ref={line2Ref} style={{ fontFamily: "'Space Mono', monospace", fontSize: "clamp(20px, 4vw, 28px)", fontWeight: 300, color: "#A0A0A0" }}>
                 things that
               </div>
-              <div ref={matterRef} style={{ fontFamily: "'Space Mono', monospace", fontSize: "clamp(56px, 9vw, 120px)", fontWeight: 900, color: "white", lineHeight: 0.95 }}>
+              <div ref={matterRef} style={{ fontFamily: "'Space Mono', monospace", fontSize: "clamp(48px, 12vw, 120px)", fontWeight: 900, color: "white", lineHeight: 1 }}>
                 matter.
               </div>
             </div>
@@ -147,10 +150,14 @@ export default function Hero() {
               ref={ctaRef}
               style={{
                 marginTop: "40px",
-                textAlign: isMobile ? "center" : "left",
+                display: "flex",
+                flexDirection: isMobile ? "column" : "row",
+                gap: "16px",
+                justifyContent: isMobile ? "center" : "flex-start",
+                width: "100%",
               }}
             >
-              <div style={{ marginBottom: "20px" }}>
+              <div style={{ width: isMobile ? "100%" : "auto" }}>
                 <a
                   href="#"
                   onClick={(e) => {
@@ -175,6 +182,7 @@ export default function Hero() {
                     justifyContent: "center",
                     boxSizing: "border-box",
                     textDecoration: "none",
+                    width: "100%",
                   }}
                   onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.97)")}
                   onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -183,7 +191,7 @@ export default function Hero() {
                 </a>
               </div>
               
-              <div>
+              <div style={{ width: isMobile ? "100%" : "auto" }}>
                 <a
                   href={cv}
                   download="Avinash_CV.pdf"
@@ -204,6 +212,7 @@ export default function Hero() {
                     justifyContent: "center",
                     boxSizing: "border-box",
                     transition: "border-color 0.2s ease",
+                    width: "100%",
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.7)")}
                   onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)")}

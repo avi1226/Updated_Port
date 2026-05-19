@@ -25,7 +25,7 @@ export function EncryptedText({ text, trigger = false, className = "", style = {
           })
           .join("")
       )
-      iteration += 1
+      iteration += Math.max(1, Math.floor(total / 40))
       if (iteration > total) {
         clearInterval(intervalRef.current)
         setDisplayText(text)

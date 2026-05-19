@@ -50,7 +50,7 @@ function LogoItem({ name, svg }) {
   )
 }
 
-function MarqueeRow({ reverse = false }) {
+function MarqueeRow({ reverse = false, items = logos }) {
   return (
     <div
       style={{
@@ -58,7 +58,8 @@ function MarqueeRow({ reverse = false }) {
         gap: "16px",
         overflow: "hidden",
         width: "100%",
-        maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)",
       }}
     >
       <div
@@ -69,7 +70,7 @@ function MarqueeRow({ reverse = false }) {
           willChange: "transform",
         }}
       >
-        {[...logos, ...logos, ...logos].map((logo, i) => (
+        {[...items, ...items, ...items].map((logo, i) => (
           <LogoItem key={i} {...logo} />
         ))}
       </div>
@@ -90,8 +91,8 @@ function MarqueeRow({ reverse = false }) {
 export function LogoLoop() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px", width: "100%", overflow: "hidden" }}>
-      <MarqueeRow reverse={false} />
-      <MarqueeRow reverse={true} />
+      <MarqueeRow reverse={false} items={logos} />
+      <MarqueeRow reverse={true} items={[...logos].reverse()} />
     </div>
   )
 }

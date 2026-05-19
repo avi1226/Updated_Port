@@ -84,11 +84,11 @@ export default function Contact() {
 
         <CardSpotlight style={{
           background: "#111111", border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: "16px", padding: "48px", textAlign: "left",
+          borderRadius: "16px", padding: "clamp(24px, 5vw, 48px)", textAlign: "left",
         }}>
           {/* Email row */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "18px", color: "white" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
+            <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "clamp(12px, 4vw, 18px)", color: "white", wordBreak: "break-all" }}>
               {EMAIL}
             </span>
             <div onClick={copyEmail} style={{ cursor: "pointer", color: "#A0A0A0", transition: "color 0.2s" }}

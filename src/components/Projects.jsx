@@ -79,13 +79,15 @@ export default function Projects() {
         {/* TABS — simple inline tabs */}
         <div
           style={{
-            display: "inline-flex",
+            display: "flex",
+            flexWrap: "wrap",
             gap: "4px",
             padding: "4px",
             background: "#111111",
             border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: "10px",
             marginBottom: "48px",
+            justifyContent: "center",
           }}
         >
           {CATEGORIES.map((cat) => (
@@ -100,8 +102,8 @@ export default function Projects() {
                 fontFamily: "'Space Mono', monospace",
                 fontSize: "13px",
                 fontWeight: activeTab === cat ? 700 : 400,
-                background: activeTab === cat ? "#FFFFFF" : "transparent",
-                color: activeTab === cat ? "#000000" : "#A0A0A0",
+                background: activeTab === cat ? "white" : "transparent",
+                color: activeTab === cat ? "black" : "#A0A0A0",
                 transition: "all 0.2s ease",
               }}
             >
@@ -166,12 +168,15 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "16px" }}>
                     {project.tags.map((tag) => (
                       <span key={tag} style={{
+                        display: "inline-block",
                         background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
                         borderRadius: "4px", padding: "4px 10px",
                         fontFamily: "'Space Mono', monospace", fontSize: "11px", color: "#A0A0A0",
+                        whiteSpace: "normal",
+                        wordBreak: "break-word"
                       }}>
                         {tag}
                       </span>
