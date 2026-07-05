@@ -161,14 +161,15 @@ export default function Contact() {
             ))}
           </div>
 
-          <HoverBorderGradient
-            onClick={() => {
-              window.location.href = `mailto:${EMAIL}`;
-            }}
-            style={{ width: "100%", marginTop: "36px" }}
+          {/* Wrap the button in a native standard link to guarantee it launches the mail app directly */}
+          <a
+            href={`mailto:${EMAIL}`}
+            style={{ textDecoration: "none", display: "block", width: "100%", marginTop: "36px" }}
           >
-            <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "14px" }}>Send a message →</span>
-          </HoverBorderGradient>
+            <HoverBorderGradient style={{ width: "100%" }}>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "14px" }}>Send a message →</span>
+            </HoverBorderGradient>
+          </a>
         </CardSpotlight>
 
         {/* Footer */}
