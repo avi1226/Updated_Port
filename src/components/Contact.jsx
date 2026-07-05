@@ -162,7 +162,9 @@ export default function Contact() {
           </div>
 
           <HoverBorderGradient
-            onClick={() => window.open(`mailto:${EMAIL}`)}
+            onClick={() => {
+              window.location.href = `mailto:${EMAIL}`;
+            }}
             style={{ width: "100%", marginTop: "36px" }}
           >
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "14px" }}>Send a message →</span>

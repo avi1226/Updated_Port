@@ -82,7 +82,7 @@ export default function About() {
 
           <div style={{ marginTop: "24px" }}>
             <EncryptedText
-              text="I'm Avinash, a full-stack developer passionate about building AI-powered products and immersive digital experiences. I enjoy creating applications that are not only functional but also visually engaging and intuitive. Currently focused on blending AI, modern web technologies, and creative design into impactful real-world projects."
+              text="I'm Sreenaga Avinash Yemeneni, a full-stack developer passionate about building AI-powered products and immersive digital experiences. I enjoy creating applications that are not only functional but also visually engaging and intuitive. Currently focused on blending AI, modern web technologies, and creative design into impactful real-world projects."
               trigger={triggerDecrypt}
               style={{
                 fontFamily: "'Inter', sans-serif",
